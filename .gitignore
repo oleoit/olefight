@@ -1,0 +1,5 @@
+# Dependencies / Cache
+node_modules/
+.freebuff/
+.DS_Store
+Thumbs.db

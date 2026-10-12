@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neon Fist — Street Fighter Web</title>
+  <link rel="stylesheet" href="style.css?v=4" />
+</head>
+<body>
+  <div id="game-shell">
+    <canvas id="game" width="960" height="540"></canvas>
+
+    <div id="hud">
+      <div class="health-side left">
+        <div class="name" id="p1-name">PLAYER 1</div>
+        <div class="health-bar"><div class="chip" id="p1-chip"></div><div class="fill" id="p1-health"></div></div>
+        <div class="meter"><div class="fill" id="p1-meter"></div></div>
+      </div>
+      <div class="timer-box">
+        <span id="timer">99</span>
+        <div class="round-label" id="round-label">ROUND 1</div>
+        <div class="hud-btns">
+          <button id="pause-btn" type="button" aria-label="พักเกม" title="พักเกม / เล่นต่อ (P หรือ ESC)">❚❚</button>
+          <button id="sound-btn" type="button" aria-label="ปิดเสียงเพลง" title="เปิด/ปิดเสียงเพลงประกอบ">🔊</button>
+        </div>
+      </div>
+      <div class="health-side right">
+        <div class="name" id="p2-name">CPU</div>
+        <div class="health-bar flip"><div class="chip" id="p2-chip"></div><div class="fill" id="p2-health"></div></div>
+        <div class="meter flip"><div class="fill" id="p2-meter"></div></div>
+      </div>
+    </div>
+
+    <div class="announce" id="announce"></div>
+
+    <div id="pause-overlay">
+      <div class="ptitle">PAUSED</div>
+      <div class="phint">กด P หรือ ESC หรือกดปุ่มด้านบนเพื่อเล่นต่อ</div>
+    </div>
+
+    <div id="menu">
+      <h1>NEON <span>FIST</span></h1>
+      <p class="sub">เกมต่อสู้ 2 มิติสไตล์อาร์เคด — เลือกรูปแบบการเล่น</p>
+      <div class="mode-row">
+        <button class="mode-btn" data-mode="2p">2 PLAYERS<br><small>P1: WASD + U/I/O · P2: ←↑→ + Numpad 1/2/3</small></button>
+        <button class="mode-btn" data-mode="cpu">VS CPU<br><small>P1: WASD + U/I/O (K = ไม้ตาย)</small></button>
+      </div>
+      <p class="tips">
+        <b>หมัด</b> U · <b>เตะสูง</b> I · <b>เตะต่ำ</b> กด ↓ ค้าง + I · <b>สไลด์</b> กด ↓ + ทิศทาง + I<br>
+        พลังชกปกติจะสะสมเกจพลังงาน · เมื่อเต็มกด K เป็นของ P1 (หรือ Numpad 0 ของ P2) เพื่อปล่อยไม้ตาย SUPER<br>
+        กด <b>P</b> หรือ <b>ESC</b> เพื่อพักเกม · ปุ่ม 🔊 บน HUD เปิด/ปิดเสียงเพลง
+      </p>
+    </div>
+
+    <div id="touch-controls" aria-hidden="true">
+      <div class="tc-left">
+        <button data-key="a">◀</button>
+        <button data-key="d">▶</button>
+        <button data-key="w">▲</button>
+        <button data-key="s">⬇</button>
+      </div>
+      <div class="tc-right">
+        <button data-key="u">👊</button>
+        <button data-key="i" title="เตะสูง · กด ⬇ ค้าง = เตะต่ำ · ⬇ + ◀/▶ ค้าง = สไลด์">🦶</button>
+        <button data-key="o">🛡</button>
+        <button data-key="k">⚡</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js?v=4"></script>
+</body>
+</html>
